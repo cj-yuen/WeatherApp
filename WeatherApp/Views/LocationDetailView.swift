@@ -15,7 +15,7 @@ struct LocationDetailView: View {
         ScrollView {
             VStack(spacing: 20) {
                 // Display the location's city name (from the geocoding API)
-                Text("Location: \(location.address.city ?? "Unknown City")")
+                Text("Location: \(location.address?.city ?? "Unknown City")")
                     .font(.title)
                     .bold()
                     .padding(.top)
@@ -76,7 +76,7 @@ struct LocationDetailView: View {
         }
         .onAppear {
             Task {
-                await weatherViewModel.fetchWeather(forCity: location.address.city ?? "", inState: location.address.state ?? "")
+                await weatherViewModel.fetchWeather(forCity: location.address?.city ?? "", inState: location.address?.state ?? "")
             }
         }
     }

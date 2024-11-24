@@ -13,7 +13,7 @@ struct Location: Identifiable, Encodable, Decodable, Hashable {
     let lon: Double
     let name: String
     let display_name: String
-    let address: Address
+    let address: Address?
     
     private enum CodingKeys: String, CodingKey {
         case id = "place_id" // Map 'place_id' in the JSON to 'id' in the model
